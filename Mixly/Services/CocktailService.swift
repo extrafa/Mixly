@@ -9,4 +9,5 @@ import Foundation
 
 protocol CocktailService {
     func loadFilteredCocktailsBy(ids: [Int]) -> [Cocktail]
+    func loadCocktailsBy(string: String) -> [Cocktail]
 }

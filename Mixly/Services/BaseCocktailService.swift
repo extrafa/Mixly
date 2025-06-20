@@ -23,7 +23,23 @@ final class BaseCocktailService: CocktailService {
         do {
             return try context.fetch(request)
         } catch {
-            print("Error filtering cocktails")
+            print("Error loading filtered cocktails")
+            return []
+        }
+    }
+    
+    func loadCocktailsBy(string: String) -> [Cocktail] {
+        let request: NSFetchRequest<Cocktail> = Cocktail.fetchRequest()
+        
+        if !string.isEmpty {
+            let predicate = NSPredicate(format: "name CONTAINS[cd] %@", string)
+            request.predicate = predicate
+        }
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error loading cocktails by string ")
             return []
         }
     }
