@@ -48,6 +48,7 @@
 				751FCFD62E05A69100FE44D3 /* Utils */,
 				751FCFDE2E05B12600FE44D3 /* Resources */,
 				751FCFD12E05A5EC00FE44D3 /* MixlyApp.swift */,
+				751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */,
 			);
 			path = Mixly;
 			sourceTree = "<group>";
@@ -57,7 +58,6 @@
 			children = (
 				751FCFD72E05A75300FE44D3 /* PersistenceController.swift */,
 				751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */,
-				751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
