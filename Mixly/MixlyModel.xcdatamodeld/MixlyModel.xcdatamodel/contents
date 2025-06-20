@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <relationship name="cocktails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cocktail" inverseName="category" inverseEntity="Cocktail"/>
+    </entity>
+    <entity name="Cocktail" representedClassName="Cocktail" syncable="YES" codeGenerationType="class">
+        <attribute name="alcoholic" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="categoryId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="glassTypeId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="cocktails" inverseEntity="Category"/>
+        <relationship name="glassType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GlassType" inverseName="cocktails" inverseEntity="GlassType"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="cocktails" inverseEntity="Ingredient"/>
+    </entity>
+    <entity name="GlassType" representedClassName="GlassType" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <relationship name="cocktails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cocktail" inverseName="glassType" inverseEntity="Cocktail"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="abv" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="containsAlcohol" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="cocktails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cocktail" inverseName="ingredients" inverseEntity="Cocktail"/>
+    </entity>
+</model>
