@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct MixlyApp: App {
+    
+    init() {
+        CocktailProvider.importCocktailsToCoreData()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

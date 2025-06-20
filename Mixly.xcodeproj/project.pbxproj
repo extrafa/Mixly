@@ -15,6 +15,8 @@
 		751FCFE02E05B14500FE44D3 /* cocktails.json in Resources */ = {isa = PBXBuildFile; fileRef = 751FCFDF2E05B14500FE44D3 /* cocktails.json */; };
 		751FCFE32E05B22C00FE44D3 /* CocktailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */; };
 		751FCFE62E05B50900FE44D3 /* MixlyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */; };
+		75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329D2E0613B000D2368F /* BaseCocktailService.swift */; };
+		75BC32A02E06150700D2368F /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329F2E06150700D2368F /* CocktailService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailProvider.swift; sourceTree = "<group>"; };
 		751FCFE52E05B50900FE44D3 /* MixlyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MixlyModel.xcdatamodel; sourceTree = "<group>"; };
 		759ADBB82E05039C00372684 /* Mixly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75BC329D2E0613B000D2368F /* BaseCocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCocktailService.swift; sourceTree = "<group>"; };
+		75BC329F2E06150700D2368F /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,8 +47,9 @@
 		751FCFD22E05A5EC00FE44D3 /* Mixly */ = {
 			isa = PBXGroup;
 			children = (
-				751FCFE12E05B18C00FE44D3 /* Views */,
 				751FCFDB2E05AF1200FE44D3 /* Models */,
+				751FCFE12E05B18C00FE44D3 /* Views */,
+				75BC329C2E06137500D2368F /* Services */,
 				751FCFD62E05A69100FE44D3 /* Utils */,
 				751FCFDE2E05B12600FE44D3 /* Resources */,
 				751FCFD12E05A5EC00FE44D3 /* MixlyApp.swift */,
@@ -101,6 +106,15 @@
 				759ADBB82E05039C00372684 /* Mixly.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		75BC329C2E06137500D2368F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				75BC329F2E06150700D2368F /* CocktailService.swift */,
+				75BC329D2E0613B000D2368F /* BaseCocktailService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */,
 				751FCFD82E05A75300FE44D3 /* PersistenceController.swift in Sources */,
 				751FCFE32E05B22C00FE44D3 /* CocktailProvider.swift in Sources */,
+				75BC32A02E06150700D2368F /* CocktailService.swift in Sources */,
 				751FCFDD2E05AF2200FE44D3 /* CocktailModel.swift in Sources */,
 				751FCFE62E05B50900FE44D3 /* MixlyModel.xcdatamodeld in Sources */,
 				751FCFD42E05A5EC00FE44D3 /* ContentView.swift in Sources */,
