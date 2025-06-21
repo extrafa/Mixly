@@ -17,6 +17,10 @@
 		751FCFE62E05B50900FE44D3 /* MixlyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */; };
 		75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329D2E0613B000D2368F /* BaseCocktailService.swift */; };
 		75BC32A02E06150700D2368F /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329F2E06150700D2368F /* CocktailService.swift */; };
+		75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */; };
+		75BC32AC2E0633E100D2368F /* BaseCocktailService+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */; };
+		75BC32AE2E06343C00D2368F /* BaseCocktailService+Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */; };
+		75BC32B02E0634A900D2368F /* BaseCocktailService+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		759ADBB82E05039C00372684 /* Mixly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BC329D2E0613B000D2368F /* BaseCocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCocktailService.swift; sourceTree = "<group>"; };
 		75BC329F2E06150700D2368F /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
+		75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Filter.swift"; sourceTree = "<group>"; };
+		75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Search.swift"; sourceTree = "<group>"; };
+		75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Favourites.swift"; sourceTree = "<group>"; };
+		75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Ingredients.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,10 @@
 			children = (
 				75BC329F2E06150700D2368F /* CocktailService.swift */,
 				75BC329D2E0613B000D2368F /* BaseCocktailService.swift */,
+				75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */,
+				75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */,
+				75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */,
+				75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,13 +203,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */,
+				75BC32B02E0634A900D2368F /* BaseCocktailService+Ingredients.swift in Sources */,
 				751FCFD82E05A75300FE44D3 /* PersistenceController.swift in Sources */,
 				751FCFE32E05B22C00FE44D3 /* CocktailProvider.swift in Sources */,
 				75BC32A02E06150700D2368F /* CocktailService.swift in Sources */,
 				751FCFDD2E05AF2200FE44D3 /* CocktailModel.swift in Sources */,
 				751FCFE62E05B50900FE44D3 /* MixlyModel.xcdatamodeld in Sources */,
+				75BC32AC2E0633E100D2368F /* BaseCocktailService+Search.swift in Sources */,
 				751FCFD42E05A5EC00FE44D3 /* ContentView.swift in Sources */,
+				75BC32AE2E06343C00D2368F /* BaseCocktailService+Favourites.swift in Sources */,
 				751FCFD52E05A5EC00FE44D3 /* MixlyApp.swift in Sources */,
+				75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
