@@ -12,6 +12,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="isFavourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="cocktails" inverseEntity="Category"/>
         <relationship name="glassType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GlassType" inverseName="cocktails" inverseEntity="GlassType"/>
