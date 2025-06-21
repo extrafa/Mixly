@@ -21,6 +21,7 @@
 		75BC32AC2E0633E100D2368F /* BaseCocktailService+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */; };
 		75BC32AE2E06343C00D2368F /* BaseCocktailService+Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */; };
 		75BC32B02E0634A900D2368F /* BaseCocktailService+Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */; };
+		75BC32B32E0644CF00D2368F /* CocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32B22E0644CF00D2368F /* CocktailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Search.swift"; sourceTree = "<group>"; };
 		75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Favourites.swift"; sourceTree = "<group>"; };
 		75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Ingredients.swift"; sourceTree = "<group>"; };
+		75BC32B22E0644CF00D2368F /* CocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				751FCFDB2E05AF1200FE44D3 /* Models */,
 				751FCFE12E05B18C00FE44D3 /* Views */,
+				75BC32B12E0644B800D2368F /* ViewModels */,
 				75BC329C2E06137500D2368F /* Services */,
 				751FCFD62E05A69100FE44D3 /* Utils */,
 				751FCFDE2E05B12600FE44D3 /* Resources */,
@@ -127,6 +130,14 @@
 				75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		75BC32B12E0644B800D2368F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				75BC32B22E0644CF00D2368F /* CocktailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				75BC32AC2E0633E100D2368F /* BaseCocktailService+Search.swift in Sources */,
 				751FCFD42E05A5EC00FE44D3 /* ContentView.swift in Sources */,
 				75BC32AE2E06343C00D2368F /* BaseCocktailService+Favourites.swift in Sources */,
+				75BC32B32E0644CF00D2368F /* CocktailViewModel.swift in Sources */,
 				751FCFD52E05A5EC00FE44D3 /* MixlyApp.swift in Sources */,
 				75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */,
 			);
