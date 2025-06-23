@@ -13,6 +13,7 @@ struct SearchCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                cocktailList()
                 categoryList()
             }
         }
@@ -21,21 +22,40 @@ struct SearchCocktailsView: View {
 
 extension SearchCocktailsView {
     
-    func categoryList() -> some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                ForEach(cocktailViewModel.categories) { category in
-                    CategoryCardView(
-                        title: category.label ?? "Unknown",
-                        iconName: "leaf.fill",
-                        colors: [.green, .mint]
-                    )
+    func cocktailList() -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack {
+                ForEach(cocktailViewModel.cocktails) { cocktail in
+                    CocktailCardView(
+                        imageURL: cocktail.image ?? "Image",
+                        name: cocktail.name ?? "Name",
+                        alcoholic: cocktail.alcoholic)
                 }
             }
-            .padding()
         }
-        .task {
-            cocktailViewModel.loadAllCategories()
+        .searchable(text: $searchString, prompt: "Search Cocktails")
+        .onSubmit(of: .search) { cocktailViewModel.searchCocktailsBy(string: searchString) }
+    }
+    
+    func categoryList() -> some View {
+        Group {
+            if cocktailViewModel.isCaterogyShow {
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                        ForEach(cocktailViewModel.categories) { category in
+                            CategoryCardView(
+                                title: category.label ?? "Unknown",
+                                iconName: "leaf.fill",
+                                colors: [.green, .mint]
+                            )
+                        }
+                    }
+                    .padding()
+                }
+                .task {
+                    cocktailViewModel.loadAllCategories()
+                }
+            }
         }
     }
     

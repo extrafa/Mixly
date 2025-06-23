@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CocktailRowView: View {
+struct CocktailCardView: View {
     let imageURL: String
     let name: String
     let alcoholic: Bool
@@ -30,7 +30,7 @@ struct CocktailRowView: View {
     }
 }
 
-extension CocktailRowView {
+extension CocktailCardView {
     
     private var imageSize: CGFloat {
         UIScreen.main.bounds.width < 400 ? 50 : 64
@@ -66,7 +66,7 @@ extension CocktailRowView {
 
 
 #Preview {
-    CocktailRowView(
+    CocktailCardView(
         imageURL: "https://boozeapi.com/api/img/cocktails/150.jpg",
         name: "Old Fashioned",
         alcoholic: true

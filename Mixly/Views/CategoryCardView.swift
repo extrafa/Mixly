@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct CategoryCardView: View {
     let title: String
     let iconName: String
