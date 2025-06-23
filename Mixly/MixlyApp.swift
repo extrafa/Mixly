@@ -16,7 +16,7 @@ struct MixlyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchCocktailsView()
         }
     }
 }
