@@ -9,15 +9,13 @@ import SwiftUI
 
 struct CategoryCardView: View {
     let title: String
-    let iconName: String
     let colors: [Color]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            categoryCardInfo(iconName: iconName, title: title)
+            categoryCardInfo(title: title)
         }
-        .padding()
-        .frame(width: 150, height: 100)
+        .frame(width: 170, height: 100)
         .background(
             LinearGradient(
                 gradient: Gradient(colors: colors),
@@ -31,12 +29,8 @@ struct CategoryCardView: View {
 
 extension CategoryCardView {
     
-    func categoryCardInfo(iconName: String, title: String) -> some View {
+    func categoryCardInfo(title: String) -> some View {
         Group {
-            Image(systemName: iconName)
-                .font(.system(size: 24))
-                .foregroundColor(.white)
-            
             Text(title)
                 .font(.headline)
                 .foregroundColor(.white)
@@ -48,8 +42,7 @@ extension CategoryCardView {
 
 #Preview {
     CategoryCardView(
-        title: "Non-alcoholic",
-        iconName: "leaf.fill",
+        title: "Shot",
         colors: [.green, .mint]
     )
 }

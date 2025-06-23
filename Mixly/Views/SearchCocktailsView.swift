@@ -16,6 +16,11 @@ struct SearchCocktailsView: View {
                 cocktailList()
                 categoryList()
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    addIngredientButton()
+                }
+            }
         }
     }
 }
@@ -24,7 +29,7 @@ extension SearchCocktailsView {
     
     func cocktailList() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack {
+            LazyVStack(spacing: 16) {
                 ForEach(cocktailViewModel.cocktails) { cocktail in
                     CocktailCardView(
                         imageURL: cocktail.image ?? "Image",
@@ -32,6 +37,8 @@ extension SearchCocktailsView {
                         alcoholic: cocktail.alcoholic)
                 }
             }
+            .padding(.horizontal)
+            .padding(.top, 8)
         }
         .searchable(text: $searchString, prompt: "Search Cocktails")
         .onSubmit(of: .search) { cocktailViewModel.searchCocktailsBy(string: searchString) }
@@ -45,7 +52,6 @@ extension SearchCocktailsView {
                         ForEach(cocktailViewModel.categories) { category in
                             CategoryCardView(
                                 title: category.label ?? "Unknown",
-                                iconName: "leaf.fill",
                                 colors: [.green, .mint]
                             )
                         }
@@ -56,6 +62,14 @@ extension SearchCocktailsView {
                     cocktailViewModel.loadAllCategories()
                 }
             }
+        }
+    }
+    
+    func addIngredientButton() -> some View {
+        Button {
+            
+        } label: {
+            Image(systemName: "plus")
         }
     }
     
