@@ -41,7 +41,7 @@ private extension CocktailCardView {
             case .success(let image):
                 image
                     .imageStyle()
-            case .failure(let error):
+            case .failure(_):
                 Image("notFound")
                     .imageStyle()
             @unknown default:
