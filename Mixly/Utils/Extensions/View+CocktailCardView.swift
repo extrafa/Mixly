@@ -30,20 +30,22 @@ struct CocktailCardView: View {
     }
 }
 
-extension CocktailCardView {
-    
-    private var imageSize: CGFloat {
-        UIScreen.main.bounds.width < 400 ? 50 : 64
-    }
+private extension CocktailCardView {
     
     func itemImageFor(url: String) -> some View {
         AsyncImage(url: URL(string: url)) { phase in
-            if let image = phase.image {
+            switch phase {
+            case .empty:
+                Image("notFound")
+                    .imageStyle()
+            case .success(let image):
                 image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: imageSize, height: imageSize)
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .imageStyle()
+            case .failure(let error):
+                Image("notFound")
+                    .imageStyle()
+            @unknown default:
+                EmptyView()
             }
         }
     }
@@ -51,15 +53,35 @@ extension CocktailCardView {
     func itemTextFor(name: String, alcoholic: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(name)
-                .font(.headline)
-                .lineLimit(1)
+                .textStyle(font: .headline, lineLimit: 1)
                 .minimumScaleFactor(0.8)
             
             Text(alcoholic)
-                .font(.subheadline)
+                .textStyle(font: .subheadline, lineLimit: 2)
                 .foregroundStyle(.secondary)
-                .lineLimit(2)
         }
+    }
+    
+}
+
+extension Image {
+    
+    func imageStyle(imageSize: CGFloat = UIScreen.main.bounds.width < 400 ? 50 : 64) -> some View {
+        self
+            .resizable()
+            .scaledToFill()
+            .frame(width: imageSize, height: imageSize)
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+    }
+    
+}
+
+extension Text {
+    
+    func textStyle(font: Font, lineLimit: Int) -> some View {
+        self
+            .font(font)
+            .lineLimit(lineLimit)
     }
     
 }
