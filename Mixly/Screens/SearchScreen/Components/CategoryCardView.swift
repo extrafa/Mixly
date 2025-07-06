@@ -13,7 +13,7 @@ struct CategoryCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            categoryCardInfo(title: title)
+            categoryText(title: title)
         }
         .frame(width: 170, height: 100)
         .background(
@@ -25,20 +25,14 @@ struct CategoryCardView: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
-}
-
-extension CategoryCardView {
-    
-    func categoryCardInfo(title: String) -> some View {
+    func categoryText(title: String) -> some View {
         Group {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.white)
         }
     }
-    
 }
-
 
 #Preview {
     CategoryCardView(

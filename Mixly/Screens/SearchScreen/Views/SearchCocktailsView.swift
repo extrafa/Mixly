@@ -19,48 +19,15 @@ struct SearchCocktailsView: View {
                     onSearch: { cocktailViewModel.searchCocktailsBy(string: $0) }
                 )
                 
-                categoryList()
+                CategoryCardListView(
+                    categories: cocktailViewModel.categories,
+                    isCategoryShow: cocktailViewModel.isCaterogyShow,
+                    loadCategories: { cocktailViewModel.loadAllCategories() }
+                )
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    addIngredientButton()
-                }
-            }
+            .addIngredientToolbar { /* Future logic */ }
         }
     }
-}
-
-extension SearchCocktailsView {
-    
-    func categoryList() -> some View {
-        Group {
-            if cocktailViewModel.isCaterogyShow {
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        ForEach(cocktailViewModel.categories) { category in
-                            CategoryCardView(
-                                title: category.label ?? "Unknown",
-                                colors: [.green, .mint]
-                            )
-                        }
-                    }
-                    .padding()
-                }
-                .task {
-                    cocktailViewModel.loadAllCategories()
-                }
-            }
-        }
-    }
-    
-    func addIngredientButton() -> some View {
-        Button {
-            
-        } label: {
-            Image(systemName: "plus")
-        }
-    }
-    
 }
 
 #Preview {
