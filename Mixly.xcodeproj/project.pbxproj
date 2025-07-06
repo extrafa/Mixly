@@ -65,13 +65,11 @@
 		751FCFD22E05A5EC00FE44D3 /* Mixly */ = {
 			isa = PBXGroup;
 			children = (
-				751FCFDB2E05AF1200FE44D3 /* Models */,
-				751FCFE12E05B18C00FE44D3 /* Views */,
-				75BC32B12E0644B800D2368F /* ViewModels */,
+				753E528A2E1B0DD500ECFAA4 /* App */,
+				753E52872E1B0B4700ECFAA4 /* Screens */,
 				75BC329C2E06137500D2368F /* Services */,
 				751FCFD62E05A69100FE44D3 /* Utils */,
 				751FCFDE2E05B12600FE44D3 /* Resources */,
-				751FCFD12E05A5EC00FE44D3 /* MixlyApp.swift */,
 				751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */,
 			);
 			path = Mixly;
@@ -80,8 +78,7 @@
 		751FCFD62E05A69100FE44D3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				751FCFD72E05A75300FE44D3 /* PersistenceController.swift */,
-				751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */,
+				753E52892E1B0D7C00ECFAA4 /* PersistenceController */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -112,6 +109,41 @@
 				75ED59912E08FB1C0012B477 /* CocktailCardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		753E52872E1B0B4700ECFAA4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				753E52882E1B0B8200ECFAA4 /* SearchScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		753E52882E1B0B8200ECFAA4 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				751FCFDB2E05AF1200FE44D3 /* Models */,
+				751FCFE12E05B18C00FE44D3 /* Views */,
+				75BC32B12E0644B800D2368F /* ViewModels */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		753E52892E1B0D7C00ECFAA4 /* PersistenceController */ = {
+			isa = PBXGroup;
+			children = (
+				751FCFD72E05A75300FE44D3 /* PersistenceController.swift */,
+				751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */,
+			);
+			path = PersistenceController;
+			sourceTree = "<group>";
+		};
+		753E528A2E1B0DD500ECFAA4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				751FCFD12E05A5EC00FE44D3 /* MixlyApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		759ADBAF2E05039C00372684 = {
