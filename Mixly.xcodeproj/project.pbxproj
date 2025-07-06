@@ -88,8 +88,8 @@
 		751FCFD62E05A69100FE44D3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				753E52912E1B10C900ECFAA4 /* Extensions */,
 				753E52892E1B0D7C00ECFAA4 /* PersistenceController */,
+				753E52912E1B10C900ECFAA4 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				75D8537F2E07BF6C00D519A0 /* SearchCocktailsView.swift */,
+				753E52942E1B19F500ECFAA4 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,7 +137,6 @@
 				751FCFDB2E05AF1200FE44D3 /* Models */,
 				751FCFE12E05B18C00FE44D3 /* Views */,
 				75BC32B12E0644B800D2368F /* ViewModels */,
-				753E52942E1B19F500ECFAA4 /* Components */,
 			);
 			path = SearchScreen;
 			sourceTree = "<group>";
@@ -177,6 +177,68 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		753E529B2E1B29CB00ECFAA4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				75BC329F2E06150700D2368F /* CocktailService.swift */,
+				753E52A12E1B2A8300ECFAA4 /* Implementation */,
+				753E529C2E1B29DE00ECFAA4 /* Search */,
+				753E529D2E1B29F100ECFAA4 /* Filter */,
+				753E529E2E1B2A3800ECFAA4 /* Favourites */,
+				753E529F2E1B2A4C00ECFAA4 /* Ingredients */,
+				753E52A02E1B2A5D00ECFAA4 /* Categories */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		753E529C2E1B29DE00ECFAA4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		753E529D2E1B29F100ECFAA4 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		753E529E2E1B2A3800ECFAA4 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		753E529F2E1B2A4C00ECFAA4 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		753E52A02E1B2A5D00ECFAA4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				75ED598F2E08F6670012B477 /* BaseCocktailService+Categories.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		753E52A12E1B2A8300ECFAA4 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				75BC329D2E0613B000D2368F /* BaseCocktailService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		759ADBAF2E05039C00372684 = {
 			isa = PBXGroup;
 			children = (
@@ -196,13 +258,7 @@
 		75BC329C2E06137500D2368F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				75BC329F2E06150700D2368F /* CocktailService.swift */,
-				75BC329D2E0613B000D2368F /* BaseCocktailService.swift */,
-				75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */,
-				75BC32AB2E0633E100D2368F /* BaseCocktailService+Search.swift */,
-				75BC32AD2E06343C00D2368F /* BaseCocktailService+Favourites.swift */,
-				75BC32AF2E0634A900D2368F /* BaseCocktailService+Ingredients.swift */,
-				75ED598F2E08F6670012B477 /* BaseCocktailService+Categories.swift */,
+				753E529B2E1B29CB00ECFAA4 /* Modules */,
 			);
 			path = Services;
 			sourceTree = "<group>";
