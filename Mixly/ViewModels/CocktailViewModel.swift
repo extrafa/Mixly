@@ -11,6 +11,8 @@ import Foundation
 final class CocktailViewModel: ObservableObject {
     @Published var cocktails: [Cocktail] = .init()
     @Published var ingredients: [Ingredient] = .init()
+    @Published var categories: [Category] = .init()
+    @Published var isCaterogyShow: Bool = true
     
     let cocktailService: CocktailService
     
@@ -18,9 +20,14 @@ final class CocktailViewModel: ObservableObject {
         self.cocktailService = cocktailService
     }
     
+    func loadAllCategories() {
+        categories = cocktailService.loadCategories()
+    }
+    
     // MARK: - Search
     
     func searchCocktailsBy(string: String) {
+        isCaterogyShow = false
         cocktails = cocktailService.loadCocktailsBy(string: string)
     }
     
