@@ -18,7 +18,11 @@ struct SearchCocktailsView: View {
                     searchString: $searchString,
                     submitSearch: { cocktailViewModel.searchCocktailsBy(string: $0) }
                 )
-                categoryList()
+                CategoryListView(
+                    categories: cocktailViewModel.categories,
+                    isCaterogyShow: cocktailViewModel.isCaterogyShow,
+                    loadCategories: { cocktailViewModel.loadAllCategories() }
+                )
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -30,27 +34,6 @@ struct SearchCocktailsView: View {
 }
 
 extension SearchCocktailsView {
-    
-    func categoryList() -> some View {
-        Group {
-            if cocktailViewModel.isCaterogyShow {
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        ForEach(cocktailViewModel.categories) { category in
-                            CategoryCardView(
-                                title: category.label ?? "Unknown",
-                                colors: [.green, .mint]
-                            )
-                        }
-                    }
-                    .padding()
-                }
-                .task {
-                    cocktailViewModel.loadAllCategories()
-                }
-            }
-        }
-    }
     
     func addIngredientButton() -> some View {
         Button {

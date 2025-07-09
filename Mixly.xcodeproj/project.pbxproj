@@ -26,6 +26,7 @@
 		75ED59902E08F6670012B477 /* BaseCocktailService+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED598F2E08F6670012B477 /* BaseCocktailService+Categories.swift */; };
 		75ED59922E08FB1C0012B477 /* CocktailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED59912E08FB1C0012B477 /* CocktailCardView.swift */; };
 		75F866862E1DFC8300C69E28 /* View+CocktailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F866852E1DFC8300C69E28 /* View+CocktailList.swift */; };
+		75F866882E1E02C300C69E28 /* View+CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F866872E1E02C300C69E28 /* View+CategoryList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		75ED598F2E08F6670012B477 /* BaseCocktailService+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Categories.swift"; sourceTree = "<group>"; };
 		75ED59912E08FB1C0012B477 /* CocktailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailCardView.swift; sourceTree = "<group>"; };
 		75F866852E1DFC8300C69E28 /* View+CocktailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CocktailList.swift"; sourceTree = "<group>"; };
+		75F866872E1E02C300C69E28 /* View+CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CategoryList.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				75F866852E1DFC8300C69E28 /* View+CocktailList.swift */,
+				75F866872E1E02C300C69E28 /* View+CategoryList.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				75BC32AC2E0633E100D2368F /* BaseCocktailService+Search.swift in Sources */,
 				75BC32AE2E06343C00D2368F /* BaseCocktailService+Favourites.swift in Sources */,
 				75F866862E1DFC8300C69E28 /* View+CocktailList.swift in Sources */,
+				75F866882E1E02C300C69E28 /* View+CategoryList.swift in Sources */,
 				75BC32B32E0644CF00D2368F /* CocktailViewModel.swift in Sources */,
 				751FCFD52E05A5EC00FE44D3 /* MixlyApp.swift in Sources */,
 				75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */,
