@@ -13,7 +13,11 @@ struct SearchCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                cocktailList()
+                CocktailListView(
+                    cocktails: cocktailViewModel.cocktails,
+                    searchString: $searchString,
+                    submitSearch: { cocktailViewModel.searchCocktailsBy(string: $0) }
+                )
                 categoryList()
             }
             .toolbar {
@@ -26,23 +30,6 @@ struct SearchCocktailsView: View {
 }
 
 extension SearchCocktailsView {
-    
-    func cocktailList() -> some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(spacing: 16) {
-                ForEach(cocktailViewModel.cocktails) { cocktail in
-                    CocktailCardView(
-                        imageURL: cocktail.image ?? "Image",
-                        name: cocktail.name ?? "Name",
-                        alcoholic: cocktail.alcoholic)
-                }
-            }
-            .padding(.horizontal)
-            .padding(.top, 8)
-        }
-        .searchable(text: $searchString, prompt: "Search Cocktails")
-        .onSubmit(of: .search) { cocktailViewModel.searchCocktailsBy(string: searchString) }
-    }
     
     func categoryList() -> some View {
         Group {
