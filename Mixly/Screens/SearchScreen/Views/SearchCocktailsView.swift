@@ -24,25 +24,9 @@ struct SearchCocktailsView: View {
                     loadCategories: { cocktailViewModel.loadAllCategories() }
                 )
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    addIngredientButton()
-                }
-            }
+            .addIngredientToolbar { /* Future logic */ }
         }
     }
-}
-
-extension SearchCocktailsView {
-    
-    func addIngredientButton() -> some View {
-        Button {
-            
-        } label: {
-            Image(systemName: "plus")
-        }
-    }
-    
 }
 
 #Preview {

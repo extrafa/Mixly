@@ -27,6 +27,7 @@
 		75ED59922E08FB1C0012B477 /* CocktailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED59912E08FB1C0012B477 /* CocktailCardView.swift */; };
 		75F866862E1DFC8300C69E28 /* View+CocktailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F866852E1DFC8300C69E28 /* View+CocktailList.swift */; };
 		75F866882E1E02C300C69E28 /* View+CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F866872E1E02C300C69E28 /* View+CategoryList.swift */; };
+		75F8668A2E1E053C00C69E28 /* View+AddIngredientToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F866892E1E053C00C69E28 /* View+AddIngredientToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		75ED59912E08FB1C0012B477 /* CocktailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailCardView.swift; sourceTree = "<group>"; };
 		75F866852E1DFC8300C69E28 /* View+CocktailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CocktailList.swift"; sourceTree = "<group>"; };
 		75F866872E1E02C300C69E28 /* View+CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CategoryList.swift"; sourceTree = "<group>"; };
+		75F866892E1E053C00C69E28 /* View+AddIngredientToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AddIngredientToolBar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				75F866852E1DFC8300C69E28 /* View+CocktailList.swift */,
 				75F866872E1E02C300C69E28 /* View+CategoryList.swift */,
+				75F866892E1E053C00C69E28 /* View+AddIngredientToolBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */,
 				75BC32B02E0634A900D2368F /* BaseCocktailService+Ingredients.swift in Sources */,
+				75F8668A2E1E053C00C69E28 /* View+AddIngredientToolBar.swift in Sources */,
 				751FCFD82E05A75300FE44D3 /* PersistenceController.swift in Sources */,
 				751FCFE32E05B22C00FE44D3 /* CocktailProvider.swift in Sources */,
 				75ED598E2E08F2B00012B477 /* CategoryCardView.swift in Sources */,
