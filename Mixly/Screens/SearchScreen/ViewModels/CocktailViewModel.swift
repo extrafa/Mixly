@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 final class CocktailViewModel: ObservableObject {
@@ -20,8 +21,11 @@ final class CocktailViewModel: ObservableObject {
         self.cocktailService = cocktailService
     }
     
+    // MARK: - Categories
+    
     func loadAllCategories() {
-        categories = cocktailService.loadCategories()
+        let allCategories = cocktailService.loadCategories()
+        categories = allCategories.filter { $0.label?.lowercased() != "other / unknown" }
     }
     
     // MARK: - Search

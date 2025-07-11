@@ -17,10 +17,10 @@ struct CategoryListView: View {
             if isCaterogyShow {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                        ForEach(categories) { category in
+                        ForEach(categories, id: \.id) { category in
                             CategoryCardView(
                                 title: category.label ?? "Unknown",
-                                colors: [.green, .mint]
+                                colors: category.colors
                             )
                         }
                     }
@@ -30,4 +30,10 @@ struct CategoryListView: View {
             }
         }
     }
+}
+
+extension Array {
+    subscript(safe index: Int) -> Element? {
+            return indices.contains(index) ? self[index] : nil
+        }
 }
