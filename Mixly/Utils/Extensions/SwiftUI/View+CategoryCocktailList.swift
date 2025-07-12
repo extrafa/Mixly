@@ -1,20 +1,19 @@
 //
-//  View+CocktailList.swift
+//  CategoryCocktailListView.swift
 //  Mixly
 //
-//  Created by Ross on 08.07.2025.
+//  Created by Ross on 12.07.2025.
 //
 
 import SwiftUI
 
-struct CocktailListView: View {
-    let cocktails: [Cocktail]
-    @Binding var searchString: String
-    let submitSearch: (String) -> Void
+struct CategoryCocktailListView: View {
+    let category: Category
+    @StateObject private var viewModel = CocktailViewModel()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
-                ForEach(cocktails) { cocktail in
+                ForEach(viewModel.cocktails) { cocktail in
                     CocktailCardView(
                         imageURL: cocktail.image ?? "notFound",
                         name: cocktail.name ?? "Cocktail",
@@ -24,7 +23,8 @@ struct CocktailListView: View {
             .padding(.horizontal)
             .padding(.top, 8)
         }
-        .searchable(text: $searchString, prompt: "Search Cocktails")
-        .onSubmit(of: .search) { submitSearch(searchString) }
+        .onAppear {
+            viewModel.loadCocktailsByCategory(category: category.label ?? "Error")
+        }
     }
 }

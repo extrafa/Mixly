@@ -21,4 +21,21 @@ extension BaseCocktailService {
         }
     }
     
+    func loadCocktailsBy(category: String) -> [Cocktail] {
+        let request: NSFetchRequest<Cocktail> = Cocktail.fetchRequest()
+        
+        if !category.isEmpty {
+            let predicate = NSPredicate(format: "category.label ==[c] %@", category)
+            request.predicate = predicate
+        }
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error loading cocktails by string ")
+            return []
+        }
+    }
+
+    
 }

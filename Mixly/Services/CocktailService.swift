@@ -14,4 +14,5 @@ protocol CocktailService {
     func toggleCocktailFavourite(cocktail: Cocktail)
     func loadIngredientsBy(string: String) -> [Ingredient]
     func loadCategories() -> [Category]
+    func loadCocktailsBy(category: String) -> [Cocktail]
 }

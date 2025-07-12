@@ -28,6 +28,10 @@ final class CocktailViewModel: ObservableObject {
         categories = allCategories.filter { $0.label?.lowercased() != "other / unknown" }
     }
     
+    func loadCocktailsByCategory(category: String) {
+        cocktails = cocktailService.loadCocktailsBy(category: category)
+    }
+    
     // MARK: - Search
     
     func searchCocktailsBy(string: String) {
