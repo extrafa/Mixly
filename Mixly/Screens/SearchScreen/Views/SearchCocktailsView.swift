@@ -19,6 +19,7 @@ struct SearchCocktailsView: View {
                     submitSearch: { cocktailViewModel.searchCocktailsBy(string: $0) }
                 )
                 CategoryListView(
+                    cocktails: cocktailViewModel.cocktails,
                     categories: cocktailViewModel.categories,
                     isCaterogyShow: cocktailViewModel.isCaterogyShow,
                     loadCategories: { cocktailViewModel.loadAllCategories() }
