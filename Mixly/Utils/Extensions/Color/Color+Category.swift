@@ -11,27 +11,27 @@ extension Category {
     var colors: [Color] {
         switch self.label?.lowercased() {
         case "shot":
-            return [.green, .mint]
-        case "other / unknown":
-            return [.gray, .indigo]
+            return [.red, .orange]
         case "ordinary drink":
-            return [.blue, .purple]
+            return [.blue, .indigo]
         case "beer":
-            return [.orange, .red]
+            return [.yellow, .orange]
         case "soft drink":
-            return [.orange, .pink]
+            return [.mint, .cyan]
         case "cocoa":
-            return [.brown, .purple]
+            return [.brown, .orange]
         case "shake":
-            return [.pink, .teal]
+            return [.pink, .orange]
         case "cocktail":
-            return [.cyan, .purple]
+            return [.purple, .pink]
         case "homemade liqueur":
-            return [.teal, .orange]
+            return [.teal, .green]
         case "coffee / tea":
-            return [.brown, .yellow]
+            return [.brown, .red]
         case "punch / party drink":
-            return [.red, .yellow]
+            return [.red, .purple]
+        case "other / unknown":
+            return [.gray, .black]
         default:
             return [.gray, .blue]
         }
