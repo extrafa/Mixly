@@ -14,6 +14,7 @@
 		751FCFE02E05B14500FE44D3 /* cocktails.json in Resources */ = {isa = PBXBuildFile; fileRef = 751FCFDF2E05B14500FE44D3 /* cocktails.json */; };
 		751FCFE32E05B22C00FE44D3 /* CocktailProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */; };
 		751FCFE62E05B50900FE44D3 /* MixlyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 751FCFE42E05B50900FE44D3 /* MixlyModel.xcdatamodeld */; };
+		75B49E302E25BB9A003EE64C /* TabScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B49E2F2E25BB99003EE64C /* TabScreenView.swift */; };
 		75BC329E2E0613B000D2368F /* BaseCocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329D2E0613B000D2368F /* BaseCocktailService.swift */; };
 		75BC32A02E06150700D2368F /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC329F2E06150700D2368F /* CocktailService.swift */; };
 		75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */; };
@@ -42,6 +43,7 @@
 		751FCFE22E05B22C00FE44D3 /* CocktailProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailProvider.swift; sourceTree = "<group>"; };
 		751FCFE52E05B50900FE44D3 /* MixlyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MixlyModel.xcdatamodel; sourceTree = "<group>"; };
 		759ADBB82E05039C00372684 /* Mixly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B49E2F2E25BB99003EE64C /* TabScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreenView.swift; sourceTree = "<group>"; };
 		75BC329D2E0613B000D2368F /* BaseCocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCocktailService.swift; sourceTree = "<group>"; };
 		75BC329F2E06150700D2368F /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
 		75BC32A92E06337900D2368F /* BaseCocktailService+Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseCocktailService+Filter.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		75B49E2D2E25BB6E003EE64C /* TabViewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				75B49E2E2E25BB8B003EE64C /* Views */,
+			);
+			path = TabViewScreen;
+			sourceTree = "<group>";
+		};
+		75B49E2E2E25BB8B003EE64C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75B49E2F2E25BB99003EE64C /* TabScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		75BC329C2E06137500D2368F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +187,7 @@
 		75F866802E1DF89E00C69E28 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				75B49E2D2E25BB6E003EE64C /* TabViewScreen */,
 				75F866812E1DF8A600C69E28 /* SearchScreen */,
 			);
 			path = Screens;
@@ -380,6 +399,7 @@
 				75BC32B32E0644CF00D2368F /* CocktailViewModel.swift in Sources */,
 				751FCFD52E05A5EC00FE44D3 /* MixlyApp.swift in Sources */,
 				75BC32AA2E06337900D2368F /* BaseCocktailService+Filter.swift in Sources */,
+				75B49E302E25BB9A003EE64C /* TabScreenView.swift in Sources */,
 				75ED59922E08FB1C0012B477 /* CocktailCardView.swift in Sources */,
 				75ED59902E08F6670012B477 /* BaseCocktailService+Categories.swift in Sources */,
 			);
