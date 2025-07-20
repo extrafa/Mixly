@@ -47,4 +47,10 @@ final class CocktailViewModel: ObservableObject {
         cocktails = cocktailService.loadFilteredCocktailsBy(ids: ids)
     }
     
+    // MARK: - Favourites
+    
+    func toggleIsFavourite(cocktail: Cocktail) {
+        cocktailService.toggleCocktailFavourite(cocktail: cocktail)
+    }
+    
 }

@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct CocktailCardView: View {
-    let imageURL: String
-    let name: String
-    let alcoholic: Bool
+    @EnvironmentObject private var viewModel: CocktailViewModel
+    @ObservedObject var cocktail: Cocktail
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            itemImageFor(url: imageURL)
+            itemImageFor(url: cocktail.image ?? "notFound")
             
-            VStack(alignment: .leading, spacing: 4) {
-                itemTextFor(name: name, alcoholic: alcoholic ? "Alcoholic" : "Non-alcoholic")
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    itemTextFor(name: cocktail.name ?? "Cocktail", alcoholic: cocktail.alcoholic ? "Alcoholic" : "Non-alcoholic")
+                }
+                Spacer()
+                Image(systemName: cocktail.isFavourite ? "bookmark.fill" : "bookmark")
+                    .onTapGesture {
+                        viewModel.toggleIsFavourite(cocktail: cocktail)
+                    }
             }
             
             Spacer(minLength: 8)
@@ -26,13 +32,4 @@ struct CocktailCardView: View {
         }
         .cardStyle()
     }
-}
-
-#Preview {
-    CocktailCardView(
-        imageURL: "https://boozeapi.com/api/img/cocktails/150.jpg",
-        name: "Old Fashioned",
-        alcoholic: true
-    )
-    .padding()
 }

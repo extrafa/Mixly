@@ -25,6 +25,7 @@ final class FavouriteCocktailViewModel: ObservableObject {
     
     func toggleIsFavourite(cocktail: Cocktail) {
         cocktailService.toggleCocktailFavourite(cocktail: cocktail)
+        loadFavouritesCocktails()
     }
     
 }

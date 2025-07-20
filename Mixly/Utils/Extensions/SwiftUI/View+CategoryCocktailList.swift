@@ -14,10 +14,7 @@ struct CategoryCocktailListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(viewModel.cocktails) { cocktail in
-                    CocktailCardView(
-                        imageURL: cocktail.image ?? "notFound",
-                        name: cocktail.name ?? "Cocktail",
-                        alcoholic: cocktail.alcoholic)
+                    CocktailCardView(cocktail: cocktail)
                 }
             }
             .padding(.horizontal)

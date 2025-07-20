@@ -13,10 +13,7 @@ struct CocktailListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(cocktails) { cocktail in
-                    CocktailCardView(
-                        imageURL: cocktail.image ?? "notFound",
-                        name: cocktail.name ?? "Cocktail",
-                        alcoholic: cocktail.alcoholic)
+                    CocktailCardView(cocktail: cocktail)
                 }
             }
             .padding(.horizontal)
@@ -25,3 +22,4 @@ struct CocktailListView: View {
         
     }
 }
+
