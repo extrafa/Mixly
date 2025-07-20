@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CocktailListView: View {
     let cocktails: [Cocktail]
-    @Binding var searchString: String
-    let submitSearch: (String) -> Void
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
@@ -24,7 +22,6 @@ struct CocktailListView: View {
             .padding(.horizontal)
             .padding(.top, 8)
         }
-        .searchable(text: $searchString, prompt: "Search Cocktails")
-        .onSubmit(of: .search) { submitSearch(searchString) }
+        
     }
 }
