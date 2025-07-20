@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CocktailCardView: View {
-    @EnvironmentObject private var viewModel: CocktailViewModel
     @ObservedObject var cocktail: Cocktail
+    let toggleFavourite: () -> Void
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
@@ -22,7 +22,7 @@ struct CocktailCardView: View {
                 Spacer()
                 Image(systemName: cocktail.isFavourite ? "bookmark.fill" : "bookmark")
                     .onTapGesture {
-                        viewModel.toggleIsFavourite(cocktail: cocktail)
+                        toggleFavourite()
                     }
             }
             

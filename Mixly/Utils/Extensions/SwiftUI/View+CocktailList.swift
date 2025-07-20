@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct CocktailListView: View {
+    @StateObject private var viewModel = CocktailViewModel()
     let cocktails: [Cocktail]
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(cocktails) { cocktail in
-                    CocktailCardView(cocktail: cocktail)
+                    CocktailCardView(
+                        cocktail: cocktail,
+                        toggleFavourite: { viewModel.toggleIsFavourite(cocktail: cocktail) }
+                    )
                 }
             }
             .padding(.horizontal)

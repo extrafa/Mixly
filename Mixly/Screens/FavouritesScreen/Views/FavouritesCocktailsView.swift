@@ -16,6 +16,9 @@ struct FavouritesCocktailsView: View {
                 CocktailListView(cocktails: favouriteViewModel.cocktails)
             }
             .navigationTitle("My cocktails")
+            .task {
+                favouriteViewModel.loadFavouritesCocktails()
+            }
         }
     }
 }
