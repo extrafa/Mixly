@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct FavouritesCocktailsView: View {
-    @StateObject private var cocktailViewModel = CocktailViewModel()
+    @StateObject private var favouriteViewModel = FavouriteCocktailViewModel()
     @State private var searchString = ""
     var body: some View {
         NavigationStack {
             ZStack {
-                CocktailListView(cocktails: cocktailViewModel.cocktails)
+                CocktailListView(cocktails: favouriteViewModel.cocktails)
             }
+            .navigationTitle("My cocktails")
         }
     }
 }
