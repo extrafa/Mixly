@@ -21,14 +21,12 @@ struct CocktailCardView: View {
                 }
                 Spacer()
                 Image(systemName: cocktail.isFavourite ? "bookmark.fill" : "bookmark")
+                    .font(.title2)
                     .onTapGesture {
                         toggleFavourite()
                     }
             }
-            
             Spacer(minLength: 8)
-            
-            
         }
         .cardStyle()
     }
