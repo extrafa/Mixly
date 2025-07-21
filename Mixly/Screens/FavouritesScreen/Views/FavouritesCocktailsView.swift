@@ -13,7 +13,7 @@ struct FavouritesCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                CocktailListView(cocktails: favouriteViewModel.cocktails)
+                FavouriteCocktailListView(viewModel: favouriteViewModel, cocktails: favouriteViewModel.cocktails)
             }
             .navigationTitle("My cocktails")
             .task {

@@ -1,14 +1,14 @@
 //
-//  View+CocktailList.swift
+//  FavouriteCocktailListView.swift
 //  Mixly
 //
-//  Created by Ross on 08.07.2025.
+//  Created by Ross on 21.07.2025.
 //
 
 import SwiftUI
 
-struct CocktailListView: View {
-    @StateObject private var viewModel = CocktailViewModel()
+struct FavouriteCocktailListView: View {
+    @ObservedObject var viewModel: FavouriteCocktailViewModel
     let cocktails: [Cocktail]
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -26,4 +26,3 @@ struct CocktailListView: View {
         
     }
 }
-

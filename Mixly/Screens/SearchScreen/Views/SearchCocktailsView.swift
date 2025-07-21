@@ -13,8 +13,7 @@ struct SearchCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                CocktailListView(cocktails: cocktailViewModel.cocktails)
-                    .environmentObject(cocktailViewModel)
+                SearchCocktailListView(viewModel: CocktailViewModel(), cocktails: cocktailViewModel.cocktails)
                 .searchable(text: $searchString, prompt: "Search Cocktails")
                 .onSubmit(of: .search) { cocktailViewModel.searchCocktailsBy(string: searchString) }
                 CategoryListView(
