@@ -13,11 +13,6 @@ struct TabScreenView: View {
             SearchCocktailsView()
                 .tabItem { Image(systemName: "house.fill" )}
             
-            // Recently searched (future logic)
-            Text("Recent")
-                .tabItem { Image(systemName: "clock.arrow.circlepath" )}
-            
-            // Favourites Screen (future logic)
             FavouritesCocktailsView()
                 .tabItem { Image(systemName: "bookmark" )}
         }
