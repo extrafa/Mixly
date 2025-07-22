@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchCocktailsView: View {
     @StateObject private var cocktailViewModel = CocktailViewModel()
     @State private var searchString = ""
+    @State private var isPresented: Bool = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -23,7 +25,8 @@ struct SearchCocktailsView: View {
                     loadCategories: { cocktailViewModel.loadAllCategories() }
                 )
             }
-            .addIngredientToolbar { /* Future logic */ }
+            .addIngredientToolbar { isPresented.toggle() }
+            .bottomSheetView(isPresented: $isPresented, content: { AddIngredientView()})
         }
     }
 }
