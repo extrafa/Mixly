@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientCardView: View {
     @ObservedObject var ingredient: Ingredient
+    @State private var isTapped: Bool = false
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
@@ -19,9 +20,14 @@ struct IngredientCardView: View {
                     itemTextFor(name: ingredient.name ?? "Ingredient")
                 }
                 Spacer()
+                Image(systemName: isTapped ? "checkmark" : "")
+                    .font(.title2)
             }
             Spacer(minLength: 8)
         }
         .cardStyle()
+        .onTapGesture {
+            isTapped.toggle()
+        }
     }
 }
