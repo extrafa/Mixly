@@ -18,7 +18,7 @@ struct TabScreenView: View {
                 .tabItem { Image(systemName: "clock.arrow.circlepath" )}
             
             // Favourites Screen (future logic)
-            Text("Favourites")
+            FavouritesCocktailsView()
                 .tabItem { Image(systemName: "bookmark" )}
         }
         .tint(.cyan)

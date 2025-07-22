@@ -1,19 +1,19 @@
 //
-//  CategoryCocktailListView.swift
+//  FavouriteCocktailListView.swift
 //  Mixly
 //
-//  Created by Ross on 12.07.2025.
+//  Created by Ross on 21.07.2025.
 //
 
 import SwiftUI
 
-struct CategoryCocktailListView: View {
-    @StateObject private var viewModel = CocktailViewModel()
-    let category: Category
+struct FavouriteCocktailListView: View {
+    @ObservedObject var viewModel: FavouriteCocktailViewModel
+    let cocktails: [Cocktail]
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
-                ForEach(viewModel.cocktails) { cocktail in
+                ForEach(cocktails) { cocktail in
                     CocktailCardView(
                         cocktail: cocktail,
                         toggleFavourite: { viewModel.toggleIsFavourite(cocktail: cocktail) }
@@ -23,8 +23,6 @@ struct CategoryCocktailListView: View {
             .padding(.horizontal)
             .padding(.top, 8)
         }
-        .onAppear {
-            viewModel.loadCocktailsByCategory(category: category.label ?? "Error")
-        }
+        
     }
 }
