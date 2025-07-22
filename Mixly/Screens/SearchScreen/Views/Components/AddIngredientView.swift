@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct AddIngredientView: View {
+    @StateObject private var cocktailViewModel = CocktailViewModel()
+    @State private var searchString: String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                IngredientListView(
+                    viewModel: cocktailViewModel,
+                    ingredients: cocktailViewModel.ingredients
+                )
+            }
+            .navigationTitle("Search ingredient")
+            .searchable(text: $searchString, prompt: "Search ingredients")
+            .onSubmit(of: .search) { cocktailViewModel.searchIngredientsBy(string: searchString) }
+        }
     }
 }
 
