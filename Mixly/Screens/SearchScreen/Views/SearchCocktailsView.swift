@@ -33,7 +33,7 @@ struct SearchCocktailsView: View {
             .addIngredientToolbar { isPresented.toggle() }
             .bottomSheetView(
                 isPresented: $isPresented,
-                content: { AddIngredientView(cocktailViewModel: viewModel, selectedIngredients: $selectedIngredientIDs) }
+                content: { AddIngredientView(viewModel: viewModel, selectedIngredients: $selectedIngredientIDs) }
             )
         }
     }
