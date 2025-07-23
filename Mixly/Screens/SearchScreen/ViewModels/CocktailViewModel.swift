@@ -44,6 +44,7 @@ final class CocktailViewModel: ObservableObject {
     }
     
     func searchCocktailsFilteredBy(ids: [Int]) {
+        isCaterogyShow = false
         cocktails = cocktailService.loadFilteredCocktailsBy(ids: ids)
     }
     

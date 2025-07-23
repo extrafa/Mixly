@@ -10,6 +10,7 @@ import SwiftUI
 struct IngredientCardView: View {
     @ObservedObject var ingredient: Ingredient
     @State private var isTapped: Bool = false
+    @Binding var selectedIngredientsIDs: [Int]
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
@@ -20,8 +21,19 @@ struct IngredientCardView: View {
                     itemTextFor(name: ingredient.name ?? "Ingredient")
                 }
                 Spacer()
-                Image(systemName: isTapped ? "checkmark" : "")
-                    .font(.title2)
+                if selectedIngredientsIDs.contains(Int(ingredient.id)) {
+                    Image(systemName: "checkmark")
+                        .font(.title2)
+                }
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                let id = Int(ingredient.id)
+                if selectedIngredientsIDs.contains(id) {
+                    selectedIngredientsIDs.removeAll { $0 == id }
+                } else {
+                    selectedIngredientsIDs.append(id)
+                }
             }
             Spacer(minLength: 8)
         }

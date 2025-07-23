@@ -8,23 +8,34 @@
 import SwiftUI
 
 struct AddIngredientView: View {
-    @StateObject private var cocktailViewModel = CocktailViewModel()
+    @ObservedObject var cocktailViewModel: CocktailViewModel
     @State private var searchString: String = ""
+    @Binding var selectedIngredients: [Int]
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                IngredientListView(
-                    viewModel: cocktailViewModel,
-                    ingredients: cocktailViewModel.ingredients
-                )
+            ZStack {
+                VStack {
+                    IngredientListView(
+                        viewModel: cocktailViewModel,
+                        ingredients: cocktailViewModel.ingredients,
+                        selectedIngredients: $selectedIngredients
+                    )
+                }
+                .navigationTitle("Search ingredient")
+                .searchable(text: $searchString, prompt: "Search ingredients")
+                .onSubmit(of: .search) { cocktailViewModel.searchIngredientsBy(string: searchString) }
             }
-            .navigationTitle("Search ingredient")
-            .searchable(text: $searchString, prompt: "Search ingredients")
-            .onSubmit(of: .search) { cocktailViewModel.searchIngredientsBy(string: searchString) }
+            Button {
+                dismiss()
+                cocktailViewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
+            } label: {
+                Text("Search")
+            }
+            .buttonStyle(.bordered)
         }
     }
 }
 
-#Preview {
-    AddIngredientView()
-}
+

@@ -11,6 +11,7 @@ struct SearchCocktailsView: View {
     @StateObject private var cocktailViewModel = CocktailViewModel()
     @State private var searchString = ""
     @State private var isPresented: Bool = false
+    @State private var selectedIngredientIDs: [Int] = []
     
     var body: some View {
         NavigationStack {
@@ -26,7 +27,7 @@ struct SearchCocktailsView: View {
                 )
             }
             .addIngredientToolbar { isPresented.toggle() }
-            .bottomSheetView(isPresented: $isPresented, content: { AddIngredientView()})
+            .bottomSheetView(isPresented: $isPresented, content: { AddIngredientView(cocktailViewModel: cocktailViewModel, selectedIngredients: $selectedIngredientIDs)})
         }
     }
 }
