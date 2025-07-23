@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddIngredientView: View {
-    @ObservedObject var cocktailViewModel: CocktailViewModel
+    @ObservedObject var viewModel: CocktailViewModel
     @State private var searchString: String = ""
     @Binding var selectedIngredients: [Int]
     @Environment(\.dismiss) private var dismiss
@@ -18,18 +18,18 @@ struct AddIngredientView: View {
             ZStack {
                 VStack {
                     IngredientListView(
-                        viewModel: cocktailViewModel,
-                        ingredients: cocktailViewModel.ingredients,
+                        viewModel: viewModel,
+                        ingredients: viewModel.ingredients,
                         selectedIngredients: $selectedIngredients
                     )
                 }
                 .navigationTitle("Search ingredient")
                 .searchable(text: $searchString, prompt: "Search ingredients")
-                .onSubmit(of: .search) { cocktailViewModel.searchIngredientsBy(string: searchString) }
+                .onSubmit(of: .search) { viewModel.searchIngredientsBy(string: searchString) }
             }
             Button {
                 dismiss()
-                cocktailViewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
+                viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
             } label: {
                 Text("Search")
             }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchCocktailsView: View {
-    @StateObject private var cocktailViewModel = CocktailViewModel()
+    @StateObject private var viewModel = CocktailViewModel()
     @State private var searchString = ""
     @State private var isPresented: Bool = false
     @State private var selectedIngredientIDs: [Int] = []
@@ -16,18 +16,25 @@ struct SearchCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                SearchCocktailListView(viewModel: CocktailViewModel(), cocktails: cocktailViewModel.cocktails)
+                CocktailListView(
+                    cocktails: viewModel.cocktails,
+                    toggleFavourite: { viewModel.toggleIsFavourite(cocktail: $0) }
+                )
                 .searchable(text: $searchString, prompt: "Search cocktails")
-                .onSubmit(of: .search) { cocktailViewModel.searchCocktailsBy(string: searchString) }
+                .onSubmit(of: .search) { viewModel.searchCocktailsBy(string: searchString) }
+                
                 CategoryListView(
-                    cocktails: cocktailViewModel.cocktails,
-                    categories: cocktailViewModel.categories,
-                    isCaterogyShow: cocktailViewModel.isCaterogyShow,
-                    loadCategories: { cocktailViewModel.loadAllCategories() }
+                    cocktails: viewModel.cocktails,
+                    categories: viewModel.categories,
+                    isCaterogyShow: viewModel.isCaterogyShow,
+                    loadCategories: { viewModel.loadAllCategories() }
                 )
             }
             .addIngredientToolbar { isPresented.toggle() }
-            .bottomSheetView(isPresented: $isPresented, content: { AddIngredientView(cocktailViewModel: cocktailViewModel, selectedIngredients: $selectedIngredientIDs)})
+            .bottomSheetView(
+                isPresented: $isPresented,
+                content: { AddIngredientView(cocktailViewModel: viewModel, selectedIngredients: $selectedIngredientIDs) }
+            )
         }
     }
 }

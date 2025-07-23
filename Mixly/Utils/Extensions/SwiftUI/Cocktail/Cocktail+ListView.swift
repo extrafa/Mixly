@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct SearchCocktailListView: View {
-    @ObservedObject var viewModel: CocktailViewModel
+struct CocktailListView: View {
     let cocktails: [Cocktail]
+    let toggleFavourite: (Cocktail) -> Void
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(cocktails) { cocktail in
                     CocktailCardView(
                         cocktail: cocktail,
-                        toggleFavourite: { viewModel.toggleIsFavourite(cocktail: cocktail) }
+                        toggleFavourite: { toggleFavourite(cocktail) }
                     )
                 }
             }

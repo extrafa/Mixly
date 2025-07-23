@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct FavouritesCocktailsView: View {
-    @StateObject private var favouriteViewModel = FavouriteCocktailViewModel()
+    @StateObject private var viewModel = FavouriteCocktailViewModel()
     @State private var searchString = ""
     var body: some View {
         NavigationStack {
             ZStack {
-                FavouriteCocktailListView(viewModel: favouriteViewModel, cocktails: favouriteViewModel.cocktails)
+                CocktailListView(
+                    cocktails: viewModel.cocktails,
+                    toggleFavourite: { viewModel.toggleIsFavourite(cocktail: $0) }
+                )
             }
             .navigationTitle("My cocktails")
             .task {
-                favouriteViewModel.loadFavouritesCocktails()
+                viewModel.loadFavouritesCocktails()
             }
         }
     }
