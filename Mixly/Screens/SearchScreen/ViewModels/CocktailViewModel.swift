@@ -54,4 +54,11 @@ final class CocktailViewModel: ObservableObject {
         cocktailService.toggleCocktailFavourite(cocktail: cocktail)
     }
     
+    // MARK: - Return Categories
+    
+    func returnCategories() {
+        cocktails.removeAll()
+        isCaterogyShow = true
+    }
+    
 }

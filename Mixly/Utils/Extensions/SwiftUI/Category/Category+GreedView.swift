@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CategoryListView: View {
-    let cocktails: [Cocktail]
     let categories: [Category]
     let isCaterogyShow: Bool
     let loadCategories: () -> Void
@@ -35,10 +34,4 @@ struct CategoryListView: View {
             }
         }
     }
-}
-
-extension Array {
-    subscript(safe index: Int) -> Element? {
-            return indices.contains(index) ? self[index] : nil
-        }
 }

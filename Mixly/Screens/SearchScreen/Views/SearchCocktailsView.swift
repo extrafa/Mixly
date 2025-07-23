@@ -24,13 +24,16 @@ struct SearchCocktailsView: View {
                 .onSubmit(of: .search) { viewModel.searchCocktailsBy(string: searchString) }
                 
                 CategoryListView(
-                    cocktails: viewModel.cocktails,
                     categories: viewModel.categories,
                     isCaterogyShow: viewModel.isCaterogyShow,
                     loadCategories: { viewModel.loadAllCategories() }
                 )
             }
-            .addIngredientToolbar { isPresented.toggle() }
+            .addIngredientToolbar(
+                ingredientAction: { isPresented.toggle() },
+                categoriesAction: { viewModel.returnCategories() },
+                isCategoryShow: $viewModel.isCaterogyShow
+            )
             .bottomSheetView(
                 isPresented: $isPresented,
                 content: { AddIngredientView(viewModel: viewModel, selectedIngredients: $selectedIngredientIDs) }

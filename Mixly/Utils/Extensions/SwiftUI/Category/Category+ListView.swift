@@ -14,9 +14,9 @@ struct CategoryCocktailListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(viewModel.cocktails) { cocktail in
-                    CocktailCardView(
-                        cocktail: cocktail,
-                        toggleFavourite: { viewModel.toggleIsFavourite(cocktail: cocktail) }
+                    CocktailListView(
+                        cocktails: viewModel.cocktails,
+                        toggleFavourite: { viewModel.toggleIsFavourite(cocktail: $0) }
                     )
                 }
             }
