@@ -13,7 +13,7 @@ final class CocktailViewModel: ObservableObject {
     @Published var cocktails: [Cocktail] = .init()
     @Published var ingredients: [Ingredient] = .init()
     @Published var categories: [Category] = .init()
-    @Published var isCaterogyShow: Bool = true
+    @Published var isCategoryPresented: Bool = true
     
     let cocktailService: CocktailService
     
@@ -35,7 +35,7 @@ final class CocktailViewModel: ObservableObject {
     // MARK: - Search
     
     func searchCocktailsBy(string: String) {
-        isCaterogyShow = false
+        isCategoryPresented = false
         cocktails = cocktailService.loadCocktailsBy(string: string)
     }
     
@@ -44,7 +44,7 @@ final class CocktailViewModel: ObservableObject {
     }
     
     func searchCocktailsFilteredBy(ids: [Int]) {
-        isCaterogyShow = false
+        isCategoryPresented = false
         cocktails = cocktailService.loadFilteredCocktailsBy(ids: ids)
     }
     
@@ -58,7 +58,7 @@ final class CocktailViewModel: ObservableObject {
     
     func returnCategories() {
         cocktails.removeAll()
-        isCaterogyShow = true
+        isCategoryPresented = true
     }
     
 }

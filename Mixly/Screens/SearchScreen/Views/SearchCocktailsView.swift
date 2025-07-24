@@ -25,14 +25,14 @@ struct SearchCocktailsView: View {
                 
                 CategoryListView(
                     categories: viewModel.categories,
-                    isCaterogyShow: viewModel.isCaterogyShow,
+                    isCaterogyShow: viewModel.isCategoryPresented,
                     loadCategories: { viewModel.loadAllCategories() }
                 )
             }
             .addIngredientToolbar(
                 ingredientAction: { isPresented.toggle() },
                 categoriesAction: { viewModel.returnCategories() },
-                isCategoryShow: $viewModel.isCaterogyShow
+                isCategoryShow: $viewModel.isCategoryPresented
             )
             .bottomSheetView(
                 isPresented: $isPresented,
