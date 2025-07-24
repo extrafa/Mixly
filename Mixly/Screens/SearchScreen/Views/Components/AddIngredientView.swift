@@ -31,11 +31,14 @@ struct AddIngredientView: View {
                 dismiss()
                 viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
             } label: {
-                Text("Search")
+                Image(systemName: "magnifyingglass").font(.title)
             }
-            .buttonStyle(.bordered)
         }
     }
 }
 
-
+#Preview {
+    AddIngredientView(
+        viewModel: CocktailViewModel(),
+        selectedIngredients: .constant([1, 2, 3]))
+}

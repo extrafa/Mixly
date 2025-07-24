@@ -15,7 +15,7 @@ struct SheetAddIngredientView<SheetContent: View>: ViewModifier {
         content
             .sheet(isPresented: $isPresented) {
                 sheetContent()
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
                     .presentationDragIndicator(.hidden)
             }
     }
