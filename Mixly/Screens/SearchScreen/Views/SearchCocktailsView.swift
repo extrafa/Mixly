@@ -21,7 +21,9 @@ struct SearchCocktailsView: View {
                     toggleFavourite: { viewModel.toggleIsFavourite(cocktail: $0) }
                 )
                 .searchable(text: $searchString, prompt: "Search cocktails")
-                .onSubmit(of: .search) { viewModel.searchCocktailsBy(string: searchString) }
+                .onSubmit(of: .search) {
+                    viewModel.searchCocktailsBy(string: searchString)
+                }
                 
                 CategoryListView(
                     categories: viewModel.categories,
@@ -32,11 +34,16 @@ struct SearchCocktailsView: View {
             .addIngredientToolbar(
                 ingredientAction: { isPresented.toggle() },
                 categoriesAction: { viewModel.returnCategories() },
-                isCategoryShow: $viewModel.isCategoryPresented
+                isCategoriesPresented: $viewModel.isCategoryPresented
             )
             .bottomSheetView(
                 isPresented: $isPresented,
-                content: { AddIngredientView(viewModel: viewModel, selectedIngredients: $selectedIngredientIDs) }
+                content: {
+                    AddIngredientView(
+                        viewModel: viewModel,
+                        selectedIngredients: $selectedIngredientIDs
+                    )
+                }
             )
         }
     }

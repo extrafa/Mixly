@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AddIngredientToolBar: ViewModifier {
-    let ingredientAction: () -> Void
+    let addIngredientAction: () -> Void
     let returnCategoriesAction: () -> Void
-    @Binding var isCaterogyShow: Bool
+    @Binding var isCategoriesPresented: Bool
     
     func body(content: Content) -> some View {
         content
@@ -25,15 +25,17 @@ struct AddIngredientToolBar: ViewModifier {
             }
     }
     
+    // BottomSheet button
     func addIngredientButton() -> some View {
-        Button(action: ingredientAction) {
+        Button(action: addIngredientAction) {
             Image(systemName: "plus")
         }
     }
     
+    // Button to return to categories
     func returnCategoriesButton() -> some View {
         Group {
-            if isCaterogyShow == false {
+            if isCategoriesPresented == false {
                 Button(action: returnCategoriesAction) {
                     Image(systemName: "chevron.left")
                 }
@@ -43,8 +45,19 @@ struct AddIngredientToolBar: ViewModifier {
     
 }
 
+// Extension to use our AddIngredientToolBar how modifier on any View
 extension View {
-    func addIngredientToolbar(ingredientAction: @escaping () -> Void, categoriesAction: @escaping () -> Void, isCategoryShow: Binding<Bool>) -> some View {
-        self.modifier(AddIngredientToolBar(ingredientAction: ingredientAction, returnCategoriesAction: categoriesAction, isCaterogyShow: isCategoryShow))
+    func addIngredientToolbar(
+        ingredientAction: @escaping () -> Void,
+        categoriesAction: @escaping () -> Void,
+        isCategoriesPresented: Binding<Bool>
+    ) -> some View {
+        self.modifier(
+            AddIngredientToolBar(
+                addIngredientAction: ingredientAction,
+                returnCategoriesAction: categoriesAction,
+                isCategoriesPresented: isCategoriesPresented
+            )
+        )
     }
 }

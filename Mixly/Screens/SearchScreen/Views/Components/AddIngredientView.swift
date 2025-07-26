@@ -15,26 +15,35 @@ struct AddIngredientView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                VStack {
-                    IngredientListView(
-                        viewModel: viewModel,
-                        ingredients: viewModel.ingredients,
-                        selectedIngredients: $selectedIngredients
-                    )
+            listOrEmpty()
+                .searchByIngredient {
+                    dismiss()
+                    viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
                 }
-                .navigationTitle("Search ingredient")
                 .searchable(text: $searchString, prompt: "Search ingredients")
-                .onSubmit(of: .search) { viewModel.searchIngredientsBy(string: searchString) }
-            }
-            Button {
-                dismiss()
-                viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
-            } label: {
-                Image(systemName: "magnifyingglass").font(.title)
-            }
+                .onSubmit(of: .search) {
+                    viewModel.searchIngredientsBy(string: searchString)
+                }
         }
     }
+    
+    // Display Ingredients list or "welcom view"
+    @ViewBuilder
+    private func listOrEmpty() -> some View {
+        if viewModel.ingredients.isEmpty {
+            ContentUnavailableView(
+                "Search ingredients",
+                systemImage: "magnifyingglass"
+            )
+        } else {
+            IngredientListView(
+                viewModel: viewModel,
+                ingredients: viewModel.ingredients,
+                selectedIngredients: $selectedIngredients
+            )
+        }
+    }
+    
 }
 
 #Preview {
