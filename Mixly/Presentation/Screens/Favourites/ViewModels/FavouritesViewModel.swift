@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class FavouriteCocktailViewModel: ObservableObject {
+final class FavouritesViewModel: ObservableObject {
     @Published var cocktails: [Cocktail] = .init()
     
     let cocktailService: CocktailService

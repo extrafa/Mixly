@@ -25,7 +25,7 @@ struct SearchCocktailsView: View {
                     viewModel.searchCocktailsBy(string: searchString)
                 }
                 
-                CategoryListView(
+                CategoryGridView(
                     categories: viewModel.categories,
                     isCaterogyShow: viewModel.isCategoryPresented,
                     loadCategories: { viewModel.loadAllCategories() }

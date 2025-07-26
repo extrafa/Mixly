@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoryListView: View {
+struct CategoryGridView: View {
     let categories: [Category]
     let isCaterogyShow: Bool
     let loadCategories: () -> Void

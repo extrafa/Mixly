@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavouritesCocktailsView: View {
-    @StateObject private var viewModel = FavouriteCocktailViewModel()
+    @StateObject private var viewModel = FavouritesViewModel()
     @State private var searchString = ""
     var body: some View {
         NavigationStack {

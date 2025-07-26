@@ -20,3 +20,9 @@ struct SheetAddIngredientView<SheetContent: View>: ViewModifier {
             }
     }
 }
+
+extension View {
+    func bottomSheetView<Content: View> (isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+        self.modifier(SheetAddIngredientView(isPresented: isPresented, sheetContent: content))
+    }
+}
