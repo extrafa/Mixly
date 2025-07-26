@@ -16,10 +16,12 @@ struct AddIngredientView: View {
     var body: some View {
         NavigationStack {
             listOrEmpty()
-                .searchByIngredient {
+                .searchByIngredient(searchAction: {
                     dismiss()
                     viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
-                }
+                }, removeAction: {
+                    selectedIngredients.removeAll()
+                })
                 .searchable(text: $searchString, prompt: "Search ingredients")
                 .onSubmit(of: .search) {
                     viewModel.searchIngredientsBy(string: searchString)
