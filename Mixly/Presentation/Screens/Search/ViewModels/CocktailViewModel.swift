@@ -10,9 +10,9 @@ import SwiftUI
 
 @MainActor
 final class CocktailViewModel: ObservableObject {
-    @Published var cocktails: [Cocktail] = .init()
-    @Published var ingredients: [Ingredient] = .init()
-    @Published var categories: [Category] = .init()
+    @Published var cocktails: [Cocktail] = []
+    @Published var ingredients: [Ingredient] = []
+    @Published var categories: [Category] = []
     @Published var isCategoryPresented: Bool = true
     
     let cocktailService: CocktailService

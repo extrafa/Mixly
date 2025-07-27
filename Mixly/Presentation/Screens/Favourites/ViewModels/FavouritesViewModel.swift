@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 final class FavouritesViewModel: ObservableObject {
-    @Published var cocktails: [Cocktail] = .init()
+    @Published var cocktails: [Cocktail] = []
     
     let cocktailService: CocktailService
     
