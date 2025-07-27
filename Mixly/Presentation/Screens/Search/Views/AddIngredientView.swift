@@ -16,7 +16,7 @@ struct AddIngredientView: View {
     var body: some View {
         NavigationStack {
             listOrEmpty()
-                .searchByIngredient(searchAction: {
+                .ingredientsToolbar(searchAction: {
                     dismiss()
                     viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
                 }, removeAction: {

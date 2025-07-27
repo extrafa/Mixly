@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddIngredientToolBar: ViewModifier {
+struct CocktailsToolBar: ViewModifier {
     let addIngredientAction: () -> Void
     let returnCategoriesAction: () -> Void
     @Binding var isCategoriesPresented: Bool
@@ -16,24 +16,24 @@ struct AddIngredientToolBar: ViewModifier {
         content
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    addIngredientButton()
+                    ingredientsButton()
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
-                    returnCategoriesButton()
+                    categoriesButton()
                 }
             }
     }
     
     // BottomSheet button
-    func addIngredientButton() -> some View {
+    func ingredientsButton() -> some View {
         Button(action: addIngredientAction) {
             Image(systemName: "plus")
         }
     }
     
     // Button to return to categories
-    func returnCategoriesButton() -> some View {
+    func categoriesButton() -> some View {
         Group {
             if isCategoriesPresented == false {
                 Button(action: returnCategoriesAction) {
@@ -47,13 +47,13 @@ struct AddIngredientToolBar: ViewModifier {
 
 // Extension to use our AddIngredientToolBar how modifier on any View
 extension View {
-    func addIngredientToolbar(
+    func cocktailsToolbar(
         ingredientAction: @escaping () -> Void,
         categoriesAction: @escaping () -> Void,
         isCategoriesPresented: Binding<Bool>
     ) -> some View {
         self.modifier(
-            AddIngredientToolBar(
+            CocktailsToolBar(
                 addIngredientAction: ingredientAction,
                 returnCategoriesAction: categoriesAction,
                 isCategoriesPresented: isCategoriesPresented

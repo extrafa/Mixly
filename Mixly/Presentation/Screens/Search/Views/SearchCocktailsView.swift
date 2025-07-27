@@ -31,20 +31,15 @@ struct SearchCocktailsView: View {
                     loadCategories: { viewModel.loadAllCategories() }
                 )
             }
-            .addIngredientToolbar(
+            .cocktailsToolbar(
                 ingredientAction: { isPresented.toggle() },
                 categoriesAction: { viewModel.returnCategories() },
                 isCategoriesPresented: $viewModel.isCategoryPresented
             )
             .bottomSheetView(
                 isPresented: $isPresented,
-                content: {
-                    AddIngredientView(
-                        viewModel: viewModel,
-                        selectedIngredients: $selectedIngredientIDs
-                    )
-                }
-            )
+                viewModel: viewModel,
+                selectedIngredients: $selectedIngredientIDs)
         }
     }
 }

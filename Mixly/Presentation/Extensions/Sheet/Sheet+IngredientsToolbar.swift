@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchByIngredientToolbar: ViewModifier {
+struct IngredientsToolbar: ViewModifier {
     let searchAction: () -> Void
     let removeAction: () -> Void
     
@@ -15,24 +15,24 @@ struct SearchByIngredientToolbar: ViewModifier {
         content
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    searchByIngredientButton()
+                    searchButton()
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
-                    removeAllIngredientsButton()
+                    removeButton()
                 }
             }
     }
     
     // Button to return cocktails filtered by ingredients
-    func searchByIngredientButton() -> some View {
+    func searchButton() -> some View {
         Button(action: searchAction) {
             Image(systemName: "magnifyingglass")
         }
     }
     
     // Button to remove all selected ingredients
-    func removeAllIngredientsButton() -> some View {
+    func removeButton() -> some View {
         Button(action: removeAction) {
             Label("clear", systemImage: "trash")
         }
@@ -41,8 +41,8 @@ struct SearchByIngredientToolbar: ViewModifier {
 
 // Extension to use our SearchByIngredientToolBar how modifier on any View
 extension View {
-    func searchByIngredient(searchAction: @escaping () -> Void, removeAction: @escaping () -> Void) -> some View {
-        self.modifier(SearchByIngredientToolbar(searchAction: searchAction, removeAction: removeAction))
+    func ingredientsToolbar(searchAction: @escaping () -> Void, removeAction: @escaping () -> Void) -> some View {
+        self.modifier(IngredientsToolbar(searchAction: searchAction, removeAction: removeAction))
     }
 }
 
