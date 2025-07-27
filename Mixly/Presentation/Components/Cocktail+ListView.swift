@@ -14,10 +14,15 @@ struct CocktailListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
                 ForEach(cocktails) { cocktail in
-                    CocktailCardView(
-                        cocktail: cocktail,
-                        toggleFavourite: { toggleFavourite(cocktail) }
-                    )
+                    NavigationLink {
+                        Text(cocktail.instructions ?? "Some error")
+                    } label: {
+                        CocktailCardView(
+                            cocktail: cocktail,
+                            toggleFavourite: { toggleFavourite(cocktail) }
+                        )
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
             .padding(.horizontal)
