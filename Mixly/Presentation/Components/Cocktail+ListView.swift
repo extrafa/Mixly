@@ -15,7 +15,7 @@ struct CocktailListView: View {
             LazyVStack(spacing: 16) {
                 ForEach(cocktails) { cocktail in
                     NavigationLink {
-                        Text(cocktail.instructions ?? "Some error")
+                        CocktailInfoView(cocktail: cocktail)
                     } label: {
                         CocktailCardView(
                             cocktail: cocktail,
