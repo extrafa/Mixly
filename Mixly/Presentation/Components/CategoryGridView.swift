@@ -19,7 +19,7 @@ struct CategoryGridView: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                         ForEach(categories, id: \.id) { category in
                             NavigationLink {
-                                CategoryCocktailListView(category: category)
+                                CategoriesCocktailListView(category: category)
                             } label: {
                                 CategoryCardView(
                                     title: category.label ?? "Unknown",

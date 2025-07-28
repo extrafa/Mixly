@@ -1,5 +1,5 @@
 //
-//  View+ImageCard.swift
+//  View+AsyncImage.swift
 //  Mixly
 //
 //  Created by Ross on 27.07.2025.
@@ -9,29 +9,22 @@ import SwiftUI
 
 extension View {
     
-    func imageFrom(url: String) -> some View {
+    func imageFrom(url: String, imageSize: CGFloat) -> some View {
         AsyncImage(url: URL(string: url)) { phase in
             switch phase {
             case .empty:
                 Image("notFound")
-                    .imageStyle()
+                    .imageStyle(imageSize: imageSize)
             case .success(let image):
                 image
-                    .imageStyle()
+                    .imageStyle(imageSize: imageSize)
             case .failure:
                 Image("notFound")
-                    .imageStyle()
+                    .imageStyle(imageSize: imageSize)
             @unknown default:
                 EmptyView()
             }
         }
-    }
-    
-    func cardStyle() -> some View {
-        self
-            .padding()
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
     
 }

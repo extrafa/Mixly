@@ -11,14 +11,15 @@ struct IngredientCardView: View {
     @ObservedObject var ingredient: Ingredient
     @State private var isTapped: Bool = false
     @Binding var selectedIngredientsIDs: [Int]
+    let imageSize: CGFloat = UIScreen.main.bounds.width < 400 ? 50 : 64
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            imageFrom(url: ingredient.image ?? "notFound")
+            imageFrom(url: ingredient.image ?? "notFound", imageSize: imageSize)
             
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    itemTextFor(name: ingredient.name ?? "Ingredient")
+                    textFor(name: ingredient.name ?? "Ingredient", alcoholic: nil, instruction: nil)
                 }
                 Spacer()
                 if selectedIngredientsIDs.contains(Int(ingredient.id)) {

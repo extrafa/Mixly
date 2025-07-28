@@ -38,7 +38,7 @@ struct AddIngredientView: View {
                 systemImage: "magnifyingglass"
             )
         } else {
-            IngredientListView(
+            IngredientsListView(
                 viewModel: viewModel,
                 ingredients: viewModel.ingredients,
                 selectedIngredients: $selectedIngredients

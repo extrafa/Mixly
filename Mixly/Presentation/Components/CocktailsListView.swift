@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CocktailListView: View {
+struct CocktailsListView: View {
     let cocktails: [Cocktail]
     let toggleFavourite: (Cocktail) -> Void
     var body: some View {

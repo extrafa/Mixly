@@ -13,7 +13,7 @@ struct FavouritesCocktailsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                CocktailListView(
+                CocktailsListView(
                     cocktails: viewModel.cocktails,
                     toggleFavourite: { viewModel.toggleIsFavourite(cocktail: $0) }
                 )

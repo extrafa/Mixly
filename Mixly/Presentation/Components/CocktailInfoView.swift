@@ -9,15 +9,17 @@ import SwiftUI
 
 struct CocktailInfoView: View {
     @ObservedObject var cocktail: Cocktail
+    let imageSize: CGFloat = UIScreen.main.bounds.width < 400 ? 250 : 320
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             
             VStack(alignment: .center, spacing: 16) {
-                bigImageFrom(url: cocktail.image ?? "notFound")
+                imageFrom(url: cocktail.image ?? "notFound", imageSize: imageSize)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        itemTextFor(name: cocktail.name ?? "Cocktail", alcoholic: cocktail.alcoholic ? "Alcoholic" : "Non-alcoholic", instruction: cocktail.instructions ?? "Instruction")
+                        textFor(name: cocktail.name ?? "Cocktail", alcoholic: cocktail.alcoholic ? "Alcoholic" : "Non-alcoholic", instruction: cocktail.instructions ?? "Instruction")
                         Spacer()
                     }
                 }

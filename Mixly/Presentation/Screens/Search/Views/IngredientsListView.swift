@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct IngredientListView: View {
+struct IngredientsListView: View {
     @ObservedObject var viewModel: CocktailViewModel
     let ingredients: [Ingredient]
     @Binding var selectedIngredients: [Int]
