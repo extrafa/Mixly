@@ -33,7 +33,7 @@ extension Category {
         case "other / unknown":
             return [.gray, .black]
         default:
-            return [.gray, .blue]
+            return [.gray, .black]
         }
     }
 }

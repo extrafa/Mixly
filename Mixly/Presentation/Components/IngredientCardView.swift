@@ -14,7 +14,7 @@ struct IngredientCardView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            itemImageFor(url: ingredient.image ?? "notFound")
+            imageFrom(url: ingredient.image ?? "notFound")
             
             HStack {
                 VStack(alignment: .leading, spacing: 4) {

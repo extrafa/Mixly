@@ -10,7 +10,7 @@ import SwiftUI
 // Image and text UI
 extension CocktailInfoView {
     
-    func itemImageFor(url: String) -> some View {
+    func bigImageFrom(url: String) -> some View {
         AsyncImage(url: URL(string: url)) { phase in
             switch phase {
             case .empty:
@@ -66,18 +66,6 @@ extension Text {
         self
             .font(font)
             .lineLimit(lineLimit)
-    }
-    
-}
-
-// Card style
-extension View {
-    
-    func infoStyle() -> some View {
-        self
-            .padding()
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
     
 }

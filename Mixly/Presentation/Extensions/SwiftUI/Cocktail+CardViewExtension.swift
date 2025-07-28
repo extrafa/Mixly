@@ -10,24 +10,6 @@ import SwiftUI
 // Image and text UI
 extension CocktailCardView {
     
-    func itemImageFor(url: String) -> some View {
-        AsyncImage(url: URL(string: url)) { phase in
-            switch phase {
-            case .empty:
-                Image("notFound")
-                    .imageStyle()
-            case .success(let image):
-                image
-                    .imageStyle()
-            case .failure:
-                Image("notFound")
-                    .imageStyle()
-            @unknown default:
-                EmptyView()
-            }
-        }
-    }
-    
     func itemTextFor(name: String, alcoholic: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(name)
@@ -62,18 +44,6 @@ extension Text {
         self
             .font(font)
             .lineLimit(lineLimit)
-    }
-    
-}
-
-// Card style
-extension View {
-    
-    func cardStyle() -> some View {
-        self
-            .padding()
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
     
 }

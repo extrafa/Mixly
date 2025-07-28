@@ -13,7 +13,7 @@ struct CocktailCardView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
-            itemImageFor(url: cocktail.image ?? "notFound")
+            imageFrom(url: cocktail.image ?? "notFound")
             
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
