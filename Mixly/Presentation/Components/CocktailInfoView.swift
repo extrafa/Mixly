@@ -11,6 +11,10 @@ struct CocktailInfoView: View {
     @ObservedObject var cocktail: Cocktail
     let imageSize: CGFloat = UIScreen.main.bounds.width < 400 ? 250 : 320
     
+    var ingredients: [Ingredient] {
+        cocktail.ingredients?.allObjects as? [Ingredient] ?? []
+    }
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             
@@ -22,6 +26,14 @@ struct CocktailInfoView: View {
                         textFor(name: cocktail.name ?? "Cocktail", alcoholic: cocktail.alcoholic ? "Alcoholic" : "Non-alcoholic", instruction: cocktail.instructions ?? "Instruction")
                         Spacer()
                     }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(ingredients) { ingredient in
+                                IngredientCapsule(ingredient: ingredient)
+                            }
+                        }
+                    }
+                    .clipped()
                 }
                 .padding()
             }
