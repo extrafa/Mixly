@@ -16,12 +16,15 @@ struct AddIngredientView: View {
     var body: some View {
         NavigationStack {
             listOrEmpty()
-                .ingredientsToolbar(searchAction: {
-                    dismiss()
-                    viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
-                }, removeAction: {
-                    selectedIngredients.removeAll()
-                })
+                .sheetToolbar(
+                    leadingAction: { selectedIngredients.removeAll() },
+                    trailingAction: {
+                        dismiss()
+                        viewModel.searchCocktailsFilteredBy(ids: selectedIngredients)
+                    },
+                    leadingSystemName: "trash",
+                    trailingSystemName: "magnifyingglass"
+                )
                 .searchable(text: $searchString, prompt: "Search ingredients")
                 .onSubmit(of: .search) {
                     viewModel.searchIngredientsBy(string: searchString)

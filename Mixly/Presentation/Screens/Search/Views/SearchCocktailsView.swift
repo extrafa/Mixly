@@ -31,15 +31,17 @@ struct SearchCocktailsView: View {
                     loadCategories: { viewModel.loadAllCategories() }
                 )
             }
-            .cocktailsToolbar(
-                ingredientAction: { isPresented.toggle() },
-                categoriesAction: { viewModel.returnCategories() },
-                isCategoriesPresented: $viewModel.isCategoryPresented
+            .sheetToolbar(
+                leadingAction: { viewModel.returnCategories() },
+                trailingAction: { isPresented.toggle() },
+                leadingSystemName: "chevron.left",
+                trailingSystemName: "plus"
             )
             .bottomSheetView(
                 isPresented: $isPresented,
                 viewModel: viewModel,
-                selectedIngredients: $selectedIngredientIDs)
+                selectedIngredients: $selectedIngredientIDs
+            )
         }
     }
 }
